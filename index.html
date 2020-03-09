@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Système UNIX</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+
+
+        </div>
+        <div class="navPagination">
+            <a id="homeLink" href="#home" class="isActive">Accueil</a>
+            <a id="johnLink" href="#john">John The Ripper</a>
+            <a id="rainbowLink" href="#rainbow">The Rainbow tables</a>
+            <a id="aboutLink" href="#about">L'équipe</a>
+
+
+        </div>
+    </nav>
+
+    <!-- Home section -->
+    <section id="home">
+        <div id="titles">
+            <h1 class="homeTitle">John The Reaper & The Rainbow Tables</h1>
+        </div>
+
+        <div id="homeButtons">
+            <div class="blueButton">
+                <a href="./assets/document/Bibliographie.txt">Notre bibliographie</a>
+            </div>
+
+        </div>
+        <img class="homeIllustration" src="./assets/img/cyber-security-vector.webp" alt="illustration"></img>
+        <div class="scrollIllustration">
+            <a href="#projects">
+                <svg width="40" height="90" viewBox="0 0 50 130">
+                    <rect id="scroll" x="0" y="22" rx="15" ry="15" width="25" height="60" stroke="#000" fill="#FFF"
+                        stroke-width="2"></rect>
+                    <circle id="circle--shape" cx="13" cy="35" r="5" fill="#000"></circle>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <section id="john">
+        <div class="john_title">
+            <p>John The Reaper</p>
+
+        </div>
+        <div class="intro">
+            <img src="./assets/img/john.png" alt="john">
+            <p class="pres">Présentation</p>
+            <p class="p_text">John the Ripper est un outil permettant de déchiffrer des mots de passe rapidement. Il est
+                disponible sur différents système d’exploitations et notamment sur Unix, macOS, Windows.
+                Au départ il servait à identifier les mots de passe dont la sécurité laissait à désirer.
+                John the Ripper a l’avantage d’être gratuit et open source. Cela signifie qu’il est utilisable et que
+                son code source est exploitable à volonté et par n’importe qui.
+                John the Ripper se sert des informations de l’utilisateur comme son prénom ou son login et applique les
+                règles définies dans le fichier “john.conf” pour essayer les combinaisons de mot de passe possibles.
+                Il permet d’effectuer des attaques par dictionnaire et bruteforce. La première attaque consiste à
+                trouver le mot de passe en testant une série de combinaisons de caractères en espérant que le mot de
+                passe soit contenu dans le dictionnaire. Les mots de passe utilisant par exemple un prénom sont donc
+                très vulnérables face à cet outil. L’attaque par force brute est proche de celle par dictionnaire
+                puisqu’elle essaye toutes les combinaisons possibles et imaginables. Plus le mot de passe est complexe
+                et long, plus ces techniques prendront de temps à décrypter les mots de passe. Par exemple, pour un mot
+                de passe de 7 caractères contenant des chiffres, lettres minuscules et majuscules, il existe 3 521 614
+                606 208 combinaisons possibles. Il faudrait donc des mois à John the Ripper pour décrypter le mot de
+                passe.
+                John the Ripper n’est pas toujours utilisé dans un but malveillant puisqu’il peut permettre de sécuriser
+                les mots de passe.
+            </p>
+        </div>
+
+
+
+
+        <div class="install">
+            <div class="intro">
+                <p class="pres">L'installation</p>
+                <p class="p_text">
+                    Pour installer l’outil sur Debian, il faut tout d’abord récupérer la dernière version de John the
+                    Ripper ici (en format .tar.gz) : https://www.openwall.com/john/
+
+                    Rendez-vous ensuite sur votre terminal puis saisissez les commandes suivantes :<br>
+
+                    <code>wget URL </code>de la dernière version de John the Ripper au format .tar.gz
+                    <br>
+                    wget permet de télécharger le fichier qui se trouve à l’adresse que vous avez spécifiée.
+
+                    <code>tar xvzf</code> le nom du fichier à extraire suivi de son extension “.tar.gz” (ce qui se situe
+                    après le
+                    dernier “/” de l’URL)<br>
+
+                    tar décompresse le fichier que vous lui spécifiez.
+
+
+                    <code>cd le nom du fichier</code> que vous avez extrait, mais sans son extension en “.tar.gz”<br>
+
+                    cd permet de se placer dans le répertoire spécifié, ici le dossier extrait.<br>
+
+                    <code>cd src</code><br>
+
+                    On se place alors dans le répertoire “src” lui-même situé dans notre dossier extrait.<br>
+
+                    <code>make</code><br>
+
+                    La commande make permet de compiler le code source<br>
+
+                    <code>make clean linux-x86-64</code><br>
+
+                    Ici, on efface les fichiers objets grâce à clean<br>
+
+                    <code>cd ../run</code><br>
+
+                    On se place dans le répertoire run<br>
+
+                    <code>./john --test</code><br>
+
+
+                    Enfin, on test l’exécutable.
+
+                </p>
+            </div>
+        </div>
+
+
+
+
+        <div class="utilisation">
+            <div class="intro">
+                <p class="pres">Utilisation</p>
+                <p class="p_text">Il existe trois modes distincts pour utiliser John The Reaper:<br>
+
+                    - Le single crack mode<br>
+                    - Le wordlist mode<br>
+                    - Le mode incrémentiel<br><br>
+
+
+                    Le single crack mode<br><br>
+
+                    Dans ce mode, John The Reaper utilise les informations dont il dispose sous la forme d'un nom
+                    d'utilisateur et d'autres informations. Cela peut être utilisé pour cracker les fichiers de mots de
+                    passe au format Username:Password.<br>
+
+                    Exemple: On a un fichier nommé crack.txt qui contient le nom d'utilisateur et le mot de passe hashé
+                    en SHA-1. Pour cracker ce mot de passe, on utilise la syntaxe suivante:
+                    % john --single --format=raw-sha1 crack.txt<br>
+
+                    L'outil ira chercher des combinaisons de caractères en rapport avec le nom d'utilisateur pour
+                    cracker le mot de passe.<br>
+
+                    <code>./john --single mypasswd</code><br><br>
+
+                    Le wordlist mode<br><br>
+
+                    Dans ce mode, John The Reaper utilise une liste de mots et il compare les hachages des mots présents
+                    dans la liste avec le hachage du mot de passe. Nous pouvons utiliser n'importe quelle liste de mots.
+                    L'outil est livré avec un fichier password.lst qui contient la plupart des mots de passe courants.
+
+                    Exemple: On a un fichier nommé crack.txt qui contient le nom d'utilisateur et le mot de passe hashé
+                    en SHA-1. Pour cracker ce mot de passe, on utilise la syntaxe suivante:
+                    % john --wordlist=/usr/share/john/password.lst --format=raw-sha1 crack.txt
+
+                    L'outil ira essayer tout les mot de passe contenus dans la rainbow table (voir ci-dessous) sur le
+                    mot de passe du fichier crack.txt.<br>
+                    <code>./john --wordlist=*password.lst* mypasswd</code><br><br>
+
+                    Le mode incrémentiel<br><br>
+
+                    C'est le mode de crack le plus puissant, il essaie toutes les combinaisons de caractères possibles
+                    comme mots de passe. Cependant, on suppose que le crackage avec ce mode ne se terminera jamais à
+                    cause du nombre trop important de combinaisons possibles.<br>
+                    <code>./john --incremental:*Alpha/Digits/Alnum/All* mypasswd</code>
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="rainbow">
+        <div class="rainbow_title">
+            <p>The Rainbow Tables</p>
+
+        </div>
+        <div class="intro">
+            <img src="./assets/img/rainbow-table-7.png" alt="rainbow">
+            <p class="pres">Présentation</p>
+            <p class="p_text">
+                Les Rainbow Tables sont un outil permettant de déchiffrer les mots de passe. Comme nous avons pu le voir
+                dans la partie sur John the ripper, un mot de passe est rarement stocké en clair. Il est tout d’abord
+                passé dans une fonction de hachage qui rend le mot de passe illisible. De ce fait, l’une des attaques
+                les plus communes est celle de force brute permettant de tester une par une chaque combinaison mot de
+                passe/identifiant jusqu’à trouver la bonne combinaison. Cette technique peut être améliorée en utilisant
+                un dictionnaire répertoriant les mots de passe les plus couramment utilisés.
+                Qu’en est-il des Rainbow tables ? Les Rainbow tables cumulent deux méthodes :
+                La force brute qui consiste à tester tous les mots de passe possibles. Le problème avec cette technique
+                est qu’elle nécessite une grande puissance de calcul si le mot de passe est compliqué.
+                Le dictionnaire d’empreinte qui consiste à conserver toutes les empreintes de hash de tous les mots de
+                passe possibles. L’inconvénient de cette technique est qu’elle nécessite une grande capacité de
+                stockage.
+
+            </p>
+            <p class="pres">Présentation</p>
+            <p class="p_text">Les Rainbow Tables cumulent à la fois une puissance de calcul raisonnable et une capacité
+                de stockage qui n’est pas trop élevée. Le but est de calculer à partir de l’empreinte, c’est-à-dire du
+                mot de passe haché. Ce mot de passe n’est pas celui que l’on cherche car il n’y a pas de fonction
+                inverse à une fonction de hachage. Cette fonction qu’on appelle fonction de réduction sert donc à
+                trouver un mot de passe à partir de l’empreinte, la fonction étant toujours la même, le mot de
+                passe obtenu sera toujours le même et avec la même empreinte.
+                On part donc d’un mot de passe qu’on hash puis on applique une fonction de réduction puis on hash à
+                nouveau le mot de passe et on applique la fonction de réduction et ainsi de suite afin de remplir les
+                tables. A chaque application de la fonction de réduction on compare le résultat et les tables.
+                Afin de mieux comprendre nous allons prendre l’exemple suivant :
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="1">Mot de passe</th>
+                        <th colspan="1">Empreinte</th>
+                    </tr>
+                </thead>
+                <tr>
+
+                    <td>qqqq</td>
+                    <td>82z8za28aa</td>
+                </tr>
+
+            </table>
+            <p class="p_text">
+                Nous avons ci-dessous notre Rainbow tables contenant des chaînes de taille 4 pour l’exemple.
+                On veut cracker le mot de passe ayant pour empreinte : « 05gy56ef »
+                Dans un premier temps on se rend compte que l’empreinte n’est pas présente dans notre Rainbow table.
+                On applique la fonction de réduction qui nous renvoie « gyuob5e » qui n’est pas non plus dans la table.
+                De ce fait, on applique encore la fonction de réduction qui nous renvoie « hih5e9z6 » qui n’est pas dans
+                la table.
+                Ensuite, on applique encore la fonction de réduction qui nous renvoie « 82z8za28aa » qui est présent
+                dans notre table, vu qu’on a fait le système 3 fois et que la table contient des chaines de taille 4, le
+                mot de passe est le premier de la chaine.
+                Enfin, si on hash « qqqq » on obtient bien « 05gy56ef ».
+                Cependant cette technique peut paraître plus ou moins simple une fois implémentée mais il y a un
+                inconvénient. En effet, dans la réalité des collisions sont fréquentes. Les collisions se produisent
+                quand une fonction de réduction retourne une empreinte pour deux mots de passe différents.
+                Il y a régulièrement plus de mots de passe que d’empreintes.<br>
+                Mot de passe de 8 caractères alphanumérique : (26+26+10)^8 = 5*10^13<br>
+                Empreinte SHA-1 : 2^160 = 10^4<br>
+                Lancer les rainbows tables:<br>
+                <code>rtgen algorythme-de-hash / character / taille-min / taille-max / fonction-de-reduction /
+                    longueur-de-chaine / nombre-de-chaine / part-fichier / part-fichier</code><br>rtgen permet de
+                génerer les rainbow tables par exemple : rtgen sha1 loweralpha 8 9 0 1000 100000 0 la
+                table qui sera générée nous permettra de cracker des hashs en SHA1 correspondant à un mot de passe
+                composé uniquement de minuscule, le mot de passe fait entre 8 et 9 caractères, on utilise le premier
+                algorithme, le 0. Enfin, nous générons 1000000 chaînes contenant chacune 1000 hashs.</p><br>
+            <code>rcrack mes-tables -h hash & rcrack mes-tables -l hash</code>
+            <p>Permet de cracker les mots de passe mes tables étant l'endroit où nos rainbow tables sont stockées et
+                hash étant ce que l'on veut cracker.</p>
+            </p>
+            <p class="pres">Comment se protéger ?</p>
+            <p class="p_text">Afin de se protéger d’attaque utilisant les Rainbow tables, un utilisateur a intérêt à
+                utiliser un mot de passe avec différents caractères et types ainsi qu’une longueur raisonnable. Il est
+                également recommandé de ne pas utiliser un mot de passe plus d’une fois car s’il est découvert
+                l’ensemble de vos données sont exposées.
+                Les administrateurs doivent faire en sorte que la base de données soit inaccessible par un étranger. Il
+                faut que tous les mots de passe soient hachés avec des algorithmes qui ne sont pas obsolètes. Par
+                exemple MD5 et SHA-1 sont totalement obsolètes. Il est conseillé d’utiliser SHA-2, SHA-256, voir même
+                SHA-3.
+                On peut également utiliser un salt qui est une valeur aléatoire créé par le système qui est ensuite
+                haché avec le mot de passe qui rend très dur le travail de retrouver le mot de passe. Un même mot de
+                passe n’aura donc pas la même valeur de hachage.
+                Le pepper est également une technique permettant d’introduire une chaîne de caractères aléatoire dans le
+                mot de passe. La seule différence est qu’il n’est pas stocké avec les mêmes données. Il est donc
+                recommandé d’utiliser le salt et le pepper en même temps.
+            </p>
+        </div>
+    </section>
+    <!-- About section -->
+
+    <div id="about">
+        <div class="intro">
+            <p class="pres">L'équipe</p>
+            <p class="p_text"> Thomas CHASTAINGT - Aymerick VALETTE - Mathieu PIONIER</p>
+        </div>
+
+    </div>
+    <footer class="copyright">
+        <p>© 2018 Copyright - Licence Projet Web & Mobile Sorbonne Université - All rights reserved</p>
+    </footer>
+
+    <script src="./script.js" type="text/javascript"></script>
+</body>
+
+</html>

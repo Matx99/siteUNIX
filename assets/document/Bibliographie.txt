@@ -1,0 +1,24 @@
+							Bibliographie :
+
+
+
+
+https://www.openwall.com/john/
+
+https://fr.wikipedia.org/wiki/Attaque_par_dictionnaire
+
+https://openclassrooms.com/fr/courses/2091901-protegez-vous-efficacement-contre-les-faill
+es-web/2680183-lattaque-par-force-brute
+
+https://artduweb.com/tutoriels/jtr
+
+
+https://www.openwall.com/john/doc/MODES.shtml 
+
+https://www.ionos.fr/digitalguide/serveur/securite/rainbow-tables/
+
+https://fr.wikipedia.org/wiki/Rainbow_table
+
+https://mieuxcoder.com/2008/01/02/rainbow-tables/
+
+https://project-rainbowcrack.com/table.htm
